@@ -76,6 +76,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		RobotMap.init();
 		CameraServer.getInstance().startAutomaticCapture();
+		visionArray.initializer();
 		
 		_agitate = new Agitator_cmd();
 		Area_cmd = new Area_cmd();

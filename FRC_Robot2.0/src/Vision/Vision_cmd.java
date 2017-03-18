@@ -7,26 +7,31 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CameraInitializer_cmd extends Command {
+public class Vision_cmd extends Command {
 
-    public CameraInitializer_cmd() {
+    public Vision_cmd() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.visionArray.initializer();
+    	Robot.visionArray.findAreas();
+    	Robot.visionArray.findCenterXs();
+    	Robot.visionArray.findCenterYs();
+    	Robot.visionArray.findWidths();
+    	Robot.visionArray.findHeights();
+    	Robot.visionArray.interpretCamera();
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
